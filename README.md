@@ -24,19 +24,13 @@ When the "Save” button is pressed, the system will record the real-time temper
 When the set temperature and measured temperature do not match, an error is produced. The PI controller will modify the manipulated variable(duty cycle) to try and get the temperature of the heated resistor to match the set temperature. Since the fan is controlled by the pulse width modulation(PWM) method, the fan speed changes correspondingly with the duty cycle between 0 and 100%. Hence the saturation block is used to keep the output from the PI controller within legal values(0-100).
 
 Once the “Save” button in the front panel is pressed, the real-time measured temperature data and the set temperature data are allowed to flow inside the file saving loop through the channels. The data will keep written into the Excel file until the recording time elapsed.
+
 ![image](https://user-images.githubusercontent.com/51925070/172768733-1e13d6d9-8ecb-441a-b043-7c1e7ea546ac.png)
 
-
-
- (Figure 2.3.1 Saving Record File)
+(Figure 2.3.1 Saving Record File)
 An event structure is created to detect the value change in the set temperature control box. Once the value changes, it will be written into an operation log file along with the date and time.
 
 ![image](https://user-images.githubusercontent.com/51925070/172768746-65558c64-f081-403c-b60b-ba35164869f0.png)
-(Figure 2.3.2 Saving Operation LogFile )
 
-The control effort produced by the derivative action is 
-█(K_D*d(error)/dt=K_D*d(set temperature - measured temperature)/dt#(2.1) )
-Since the set temperature is a constant in this system, simplifying the above expression yields 
-█(K_D*(0 - d( measured temperature))/dt#(2.2) )
-Measurement noise makes the derivative action loses its benefits. The noisy measured temperature has changing derivatives as the slope switches its direction at every sample. If the controller involves differential control, the noise will be amplified and reflected in the controlled output(duty cycle).
+(Figure 2.3.2 Saving Operation LogFile )
 
