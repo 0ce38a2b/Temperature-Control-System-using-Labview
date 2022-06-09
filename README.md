@@ -1,4 +1,5 @@
 # Temperature-Control-System-using-Labview
+The project is to control the temperature of a heated system using a DC cooling fan. It could be considered as a model for an air conditioning system or some sort of industrial plant cooling system.
 # Main Front Panel 
 ![image](https://user-images.githubusercontent.com/51925070/172768249-8a97e4b3-90c9-45b8-8bce-fe5efd9611af.png)
 
